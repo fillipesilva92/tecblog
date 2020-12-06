@@ -1,0 +1,16 @@
+<div id="notice"><%= notice %></div>
+
+<ul>
+	<% @comments.each do | comment | %>
+		<li><a href="/comments/<%= comment.id %>">
+			<%= comment.title %>
+			<%= comment.content %>
+			<%= comment.rating %>
+			</a>
+			<a href="/comments/<%= comment.id %>" data-confirm="Are you sure?" rel="nofollow" data-method="delete">Destroy</a>
+			<a href="/comments/<%= comment.id %>/edit">Edit</a>
+		</li>
+	<% end %>
+</ul>
+
+<a href='/comments/new'>Add new comment</a>
