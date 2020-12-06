@@ -9,9 +9,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.post_id = params[:post_id]
 
     if @comment.save
-      redirect_to '/comments', notice: 'Comment was created successfully!'
+      redirect_to post_path(@comment.post_id), notice: 'Comment was created successfully!'
     else
       render :new
     end
@@ -25,7 +26,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by_id(params[:id])
 
     if @comment.update(comment_params)
-      redirect_to '/comments', notice: 'Comment has been updated successfully!'
+      redirect_to '/', notice: 'Comment has been updated successfully!'
     else
       render :new
     end
