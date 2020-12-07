@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   end
   
   resources :comments
+
+  get '/categories/:name' to: 'categories#filtered'
+  end
 end

@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_233145) do
+ActiveRecord::Schema.define(version: 2020_12_07_001027) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "status"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "title"
@@ -25,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_12_06_233145) do
     t.string "content"
     t.string "image"
     t.integer "user_id", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -41,5 +48,6 @@ ActiveRecord::Schema.define(version: 2020_12_06_233145) do
   end
 
   add_foreign_key "comments", "posts"
+  add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
 end
