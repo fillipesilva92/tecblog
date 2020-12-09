@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
   def filtered
-    @categories = Category.find_by_name()  
+    @category = Category.find_by_name!(params[:name])
   end
 end
