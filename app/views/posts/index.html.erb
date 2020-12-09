@@ -4,9 +4,11 @@
   <a href='/posts/<%= post.id %>'><%= post.title %></a>
   <a href='/posts/<%= post.id %>'><%= post.content %></a>
   <a href='/posts/<%= post.id %>'><%= post.image %></a>
-  <a href='/posts/<%= post.id %>/edit' style="color: Orange">Edit</a>
-  <a href='/posts/<%= post.id %>' data-confirm='Deseja realmente excluir?' rel='nofollow' data-method="delete" style="color: Orange">Destroy</a>
-  <br>
+  <% if user_signed_in? && current_user.id == post.user.id %>
+    <a href='/posts/<%= post.id %>/edit' style="color: Orange">Edit</a>
+    <a href='/posts/<%= post.id %>' data-confirm='Deseja realmente excluir?' rel='nofollow' data-method="delete" style="color: Orange">Destroy</a>
+    <br>
+  <% end %>
 <% end %>
 
 <h4><a href='/posts/new'>Add new post</a></h4>
