@@ -11,8 +11,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params.merge(user_id: current_user.id))
+    @category = @post.category_id
 
-    if @post.save
+    if Category.find_by_id(@category).status == 'inativo'
+      redirect_to '/', notice: 'I'
+    elsif @post.save
       redirect_to '/', notice: 'Post was created successfully!'
     else
       render :new
