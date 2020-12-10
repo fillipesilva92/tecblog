@@ -1,4 +1,12 @@
 <a href="/">Back</a>
 <%  @category.posts.each do |post| %>
-  <li><%= post.title %></li>
+  <div id="postagem">
+		<h2><a href='/posts/<%= post.id %>'><%= post.title %></a></h2>
+		<span class="data-postagem">postado em 12 Março 2015</span>
+		<img class="img-postagem" src='<%= post.image %>'>
+		<p>
+      <%= post.content %>
+		</p>
+		<span class="postado">Postado por Fillipe Ferreira</span>
+  </div>
 <% end %>

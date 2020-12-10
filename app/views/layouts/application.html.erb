@@ -10,18 +10,30 @@
   </head>
 
   <body>
-    <p>
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
-      <% end %>
-      </p>
-      <hr>
+    <div id="navegacao">
+			
+      <div id="area">
+        <h1 id="logo"><span class="verde">Tec</span>blog</h1>
+        <div id="menu">
+          <a href="/">home</a>
+          <a href="/categories/games">games</a>
+          <a href="/categories/apps">apps</a>
+          <a href="/categories/eletronicos">eletronicos</a>
+          
+          <% if user_signed_in? %>
+          <strong><%= current_user.email %></strong>
+          <%= link_to 'Edit', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+        <% end %>
+        </div>
+      </div>
+    </div>
 
-    <%= yield %>
+    <div id="area-principal">
+      <%= yield %>
+    </div>
   </body>
 </html>
