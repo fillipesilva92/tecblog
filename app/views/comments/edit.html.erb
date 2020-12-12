@@ -4,30 +4,30 @@
   <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
   <ul>
-      <% @comment.errors.full_messages.each do |message| %>
+    <% @comment.errors.full_messages.each do |message| %>
       <li><%= message %></li>
-      <% end %>
+    <% end %>
   </ul>
   </div>
   <% end %>
 
   <div class="field">
-      <%= form.label :title %>
-      <%= form.text_field :title %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
   </div>
 
   <div class="field">
-      <%= form.label :content %>
-      <%= form.text_field :content %>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
   </div>
 
   <div class="field">
-      <%= form.label :rating %>
-      <%= form.text_field :rating %>
+    <%= form.label :rating %>
+    <%= form.text_field :rating %>
   </div>
 
   <div class="actions">
-      <%= form.submit %>
+    <%= form.submit %>
   </div>
   
   <% end %>
