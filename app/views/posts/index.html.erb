@@ -7,13 +7,13 @@
       <%= post.content %>
 		</p>
     <span class="postado">Postado por <%= post.user.email %>
-    <% if user_signed_in? && current_user.id == post.user.id %>
-    <div class="actions-menu">
-    <a href='/posts/<%= post.id %>/edit'><i class="far fa-edit"></i></a>
-    <a href='/posts/<%= post.id %>' data-confirm='Deseja realmente excluir?' rel='nofollow' data-method="delete"><i class="far fa-trash-alt"></i></a>
-    </div>
-    <br>
-  <% end %>
+      <% if user_signed_in? && current_user.id == post.user.id %>
+        <div class="actions-menu">
+          <a href='/posts/<%= post.id %>/edit'><i class="far fa-edit"></i></a>
+          <a href='/posts/<%= post.id %>' data-confirm='Deseja realmente excluir?' rel='nofollow' data-method="delete"><i class="far fa-trash-alt"></i></a>
+        </div>
+        <br>
+      <% end %>
     </span>
   </div>
 
