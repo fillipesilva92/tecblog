@@ -1,19 +1,21 @@
 <% @posts.each do |post| %>
   <div id="postagem">
 		<h2><a href='/posts/<%= post.id %>'><%= post.title %></a></h2>
-		<span class="data-postagem">postado em 12 Março 2015</span>
+		<span class="data-postagem">postado em <%= post.created_at.strftime('%d %B %Y') %></span>
 		<img class="img-postagem" src='<%= post.image %>'>
 		<p>
       <%= post.content %>
 		</p>
-		<span class="postado">Postado por Fillipe Ferreira</span>
-  </div>
-  
-  <% if user_signed_in? && current_user.id == post.user.id %>
-    <a href='/posts/<%= post.id %>/edit' style="color: Orange">Edit</a>
-    <a href='/posts/<%= post.id %>' data-confirm='Deseja realmente excluir?' rel='nofollow' data-method="delete" style="color: Orange">Destroy</a>
+    <span class="postado">Postado por <%= post.user.email %>
+    <% if user_signed_in? && current_user.id == post.user.id %>
+    <div class="actions-menu">
+    <a href='/posts/<%= post.id %>/edit'><i class="far fa-edit"></i></a>
+    <a href='/posts/<%= post.id %>' data-confirm='Deseja realmente excluir?' rel='nofollow' data-method="delete"><i class="far fa-trash-alt"></i></a>
+    </div>
     <br>
   <% end %>
+    </span>
+  </div>
 
 <% end %>
 
