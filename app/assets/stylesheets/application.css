@@ -91,8 +91,8 @@ a:visited {
 
 /*Links hover*/
 a:hover {
-	color: #fff;
-	background: #b9c941;
+	color: #b9c941;
+	/*background: black;*/
 }
 
 /*Links active*/
