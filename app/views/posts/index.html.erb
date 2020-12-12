@@ -1,4 +1,6 @@
-<% @posts.each do |post| %>
+<br><h4><a href='/posts/new'>+Add new post</a></h4><br>
+
+<% @posts.reverse.each do |post| %>
   <div id="postagem">
 		<h2><a href='/posts/<%= post.id %>'><%= post.title %></a></h2>
 		<span class="data-postagem">postado em <%= post.created_at.strftime('%d %B %Y') %></span>
@@ -18,5 +20,3 @@
   </div>
 
 <% end %>
-
-<h4><a href='/posts/new'>Add new post</a></h4>
