@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @categories = Category.all.where(status: 'ativo').map { |category| [category.name, category.id] }
   end
 
   def create
