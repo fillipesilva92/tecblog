@@ -38,6 +38,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @categories = Category.where(status: 'ativo').map { |category| [category.name, category.id] }
   end
 
   def destroy

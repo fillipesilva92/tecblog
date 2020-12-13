@@ -25,6 +25,11 @@
     <%= form.label :image %>
     <%= form.text_field :image %>
   </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.select :category_id, @categories %>
+  </div>
   
   <div class="actions">
     <%= form.submit %>
