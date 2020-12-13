@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'posts#index'
   
+  get '/posts/search/:title', to: 'posts#search'
+
   resources :posts do
     resources :comments
   end
@@ -10,4 +12,6 @@ Rails.application.routes.draw do
   resources :comments
   
   get '/categories/:name', to: 'categories#filtered'
+
+
 end

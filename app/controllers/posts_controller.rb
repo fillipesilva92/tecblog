@@ -49,6 +49,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @post = Post.find_by_title!(params[:title])
+  end
+
   private
 
   def post_params
